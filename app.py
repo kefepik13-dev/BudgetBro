@@ -36,7 +36,6 @@ def login():
             session['logged_in'] = True  # Dummy-Session für Login
             flash("Login erfolgreich!", "success")
             return redirect(url_for('dashboard'))
-        else:
             flash("Benutzername oder Passwort falsch!", "danger")
     return render_template('login.html', form=form, active_page="login")
 
