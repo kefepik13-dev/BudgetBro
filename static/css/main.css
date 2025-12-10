@@ -125,6 +125,65 @@
          grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
          gap: 1rem;
      }
+     /* Sankey */
+     
+     .sankey-card {
+         grid-column: 1 / -1;
+         /* full width so other cards sit below */
+     }
+     
+     .sankey-wrapper {
+         width: 100%;
+         max-height: 420px;
+         overflow: hidden;
+     }
+     
+     .sankey-wrapper iframe {
+         width: 100%;
+         height: 360px;
+         border: none;
+     }
+     
+     .sankey-card .sankey-actions {
+         display: flex;
+         justify-content: flex-end;
+         margin-bottom: 0.5rem;
+     }
+     
+     .btn-link {
+         display: inline-block;
+         padding: 0.35rem 0.75rem;
+         background: #2c3e50;
+         color: #fff;
+         border-radius: 6px;
+         text-decoration: none;
+         font-size: 0.9rem;
+         transition: background 0.2s ease;
+     }
+     
+     .btn-link:hover {
+         background: #34495e;
+     }
+     
+     .sankey-wrapper {
+         width: 100%;
+         max-height: 320px;
+         overflow: auto;
+     }
+     
+     .sankey-wrapper iframe {
+         width: 100%;
+         height: 300px;
+         border: none;
+     }
+     
+     .sankey-card.full .sankey-wrapper {
+         max-height: none;
+     }
+     
+     .sankey-wrapper.full iframe {
+         height: 75vh;
+     }
      
      .card,
      .goal-card {

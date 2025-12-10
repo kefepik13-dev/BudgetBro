@@ -10,6 +10,17 @@
 
     <div class="dashboard-grid">
 
+        <div class="card sankey-card">
+            <h3>💸 Finanzübersicht</h3>
+            <div class="sankey-actions">
+                <a class="btn-link" href="{{ url_for('sankey_full') }}" rel="noopener">Fullscreen
+                    öffnen</a>
+            </div>
+            <div class="sankey-wrapper">
+                {{ graph_html|safe }}
+            </div>
+        </div>
+
         <div class="card tips-card">
             <h3>Kleine Tipps</h3>
             <ul>

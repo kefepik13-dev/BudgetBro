@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block title %}Sankey Vollbild - BudgetBro{% endblock %}
+
+{% block content %}
+<div class="dashboard-wrapper">
+    <div class="card sankey-card full">
+        <div class="sankey-actions">
+            <a class="btn-link" href="{{ url_for('dashboard') }}">← Zurück zum Dashboard</a>
+        </div>
+        <div class="sankey-wrapper full">
+            {{ graph_html|safe }}
+        </div>
+    </div>
+</div>
+{% endblock %}
