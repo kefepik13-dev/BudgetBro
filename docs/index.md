@@ -3,32 +3,29 @@ title: Home
 nav_order: 0
 ---
 
-{: .attention }
-> Any text enclosed by `[ ]` are placeholders, including the opening and closing brackets.
->
-> You may delete this `attention` box.
 
-# [BudgetBro]
 
-[BudgetBro ist eine Full-Stack-Webanwendung zur übersichtlichen Darstellung persönlicher Einnahmen, Ausgaben und Sparziele. Im Gegensatz zu Banking-Apps wie „Finanzguru“ konzentriert sich BudgetBro nicht auf Kontointegration oder Automatisierung, sondern auf klare Visualisierung und manuelle Kontrolle über die eigenen Finanzen]
+# BudgetBro
+
+BudgetBro ist eine Full-Stack-Webanwendung zur übersichtlichen Darstellung persönlicher Einnahmen, Ausgaben und Sparziele. Im Gegensatz zu Banking-Apps wie „Finanzguru“ konzentriert sich BudgetBro nicht auf Kontointegration oder Automatisierung, sondern auf klare Visualisierung und manuelle Kontrolle über die eigenen Finanzen
 
 ## Team members
 
-### [Batuhan Selvi]
+### Batuhan Selvi
 
 About
-: Some info about Jane
+: 21 Jahre alt, 4. Semester Wirtschaftsinformatik 
 
 Matr.-Nr.
 : 77206391273
 
-### [Kürsat Efe Epik]
+### Kürsat Efe Epik
 
 About
-: Some info about Joe
+: 20 Jahre alt, 4. Semester Wirtschaftsinformatik 
 
 Matr.-Nr.
-: 1234567
+: 77203763674
 
 ## Eidesstattliche Erklärung
 
