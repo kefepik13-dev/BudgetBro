@@ -8,21 +8,21 @@ nav_order: 0
 >
 > You may delete this `attention` box.
 
-# [Project Name]
+# [BudgetBro]
 
 [Project description]
 
 ## Team members
 
-### [Jane Dane]
+### [Batuhan Selvi]
 
 About
 : Some info about Jane
 
 Matr.-Nr.
-: 1234567
+: 77206391273
 
-### [Joe Doe]
+### [Kürsat Efe Epik]
 
 About
 : Some info about Joe
