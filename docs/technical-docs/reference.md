@@ -10,12 +10,6 @@ nav_order: 3
 {: .no_toc }
 # Reference documentation
 
-{: .attention }
-> This page collects internal functions, routes with their functions, and APIs (if any).
-> 
-> See [Uber](https://developer.uber.com/docs/drivers/references/api) or [PayPal](https://developer.paypal.com/api/rest/) for exemplary high-quality API reference documentation.
->
-> You may delete this `attention` box.
 
 <details open markdown="block">
 {: .text-delta }
@@ -24,62 +18,131 @@ nav_order: 3
 {: toc }
 </details>
 
-## [Section / module]
+# Reference Documentation
 
-### `function_definition()`
-
-**Route:** `/route/`
-
-**Methods:** `POST` `GET` `PATCH` `PUT` `DELETE`
-
-**Purpose:** [Short explanation of what the function does and why]
-
-**Sample output:**
-
-[Show an image, string output, or similar illustration -- or write NONE if function generates no output]
+Diese Seite sammelt interne Funktionen, Routen und APIs der BudgetBro-App.
 
 ---
 
-## [Example, delete this section] Show to-do lists
+## User Management
 
-### `get_lists()`
+### `register()`
 
-**Route:** `/lists/`
+**Route:** `/register/`  
+**Methods:** `GET`, `POST`  
 
-**Methods:** `GET`
+**Purpose:**  
+Zeigt das Registrierungsformular. Erstellt einen neuen Benutzer, hasht das Passwort und startet eine Session.
 
-**Purpose:** Show all to-do lists.
-
-**Sample output:**
-
-![get_lists() sample](../assets/images/fswd-intro_00.png)
-
----
-
-### `get_list_todos(list_id)`
-
-**Route:** `/lists/<int:list_id>`
-
-**Methods:** `GET`
-
-**Purpose:** Retrieve all to-do items of to-do list with ID `list_id` from database and present to user.
-
-**Sample output:**
-
-![get_list_todos() sample](../assets/images/fswd-intro_02.png)
+**Sample output:**  
+- Bei Erfolg: Weiterleitung zum Dashboard, Flash „Login erfolgreich“  
+- Bei Fehler: Flash „Benutzername ist bereits vergeben“
 
 ---
 
-## [Example, delete this section] Insert sample data
+### `login()`
 
-### `run_insert_sample()`
+**Route:** `/login/`  
+**Methods:** `GET`, `POST`  
 
-**Route:** `/insert/sample`
+**Purpose:**  
+Zeigt Login-Formular, prüft Benutzername + Passwort. Startet Session bei Erfolg.
 
-**Methods:** `GET`
+**Sample output:**  
+- Erfolg: Weiterleitung zum Dashboard, Flash „Login erfolgreich“  
+- Fehler: Flash „Benutzername oder Passwort falsch!“
 
-**Purpose:** Flush the database and insert sample data set
+---
 
-**Sample output:**
+### `logout()`
 
-Browser shows: `Database flushed and populated with some sample data.`
+**Route:** `/logout/`  
+**Methods:** `GET`  
+
+**Purpose:**  
+Löscht die Session und loggt den Benutzer aus. Leitet zurück zum Login.
+
+**Sample output:**  
+- Flash: „Du wurdest ausgeloggt.“
+
+---
+
+## Dashboard & Visualisierung
+
+### `dashboard()`
+
+**Route:** `/dashboard/`  
+**Methods:** `GET`  
+
+**Purpose:**  
+Zeigt das Dashboard für eingeloggte Benutzer. Beinhaltet Sankey-Diagramm, Tipps und Sparziele.
+
+**Sample output:**  
+- HTML-Seite mit Sankey-Diagramm, Sparziel-Karte und Tipps-Karte
+
+---
+
+### `sankey_full()`
+
+**Route:** `/sankey/full/`  
+**Methods:** `GET`  
+
+**Purpose:**  
+Zeigt Sankey-Diagramm im Vollbild. Nur für eingeloggte Benutzer.
+
+**Sample output:**  
+- Vollbild-Sankey-Diagramm mit Zurück-Link zum Dashboard
+
+---
+
+### `fluss()`
+
+**Route:** `/fluss/`  
+**Methods:** `GET`  
+
+**Purpose:**  
+Zeigt Detailansicht der Finanzströme (aktuell Platzhalter, noch in Bearbeitung)
+
+**Sample output:**  
+- HTML-Seite „Fluss“
+
+---
+
+### `berichte()`
+
+**Route:** `/berichte/`  
+**Methods:** `GET`  
+
+**Purpose:**  
+Zeigt Finanzberichte/Analysen (aktuell Platzhalter, noch in Bearbeitung)
+
+**Sample output:**  
+- HTML-Seite „Berichte“
+
+---
+
+### `ziele()`
+
+**Route:** `/ziele/`  
+**Methods:** `GET`  
+
+**Purpose:**  
+Zeigt Sparziele des Benutzers, Fortschrittsanzeige in Prozent.
+
+**Sample output:**  
+- HTML-Seite mit Zielkarten
+
+---
+
+## Sankey-Diagramm
+
+### `build_financial_sankey()`
+
+**Route:** NONE (Funktion, kein Endpoint)  
+**Methods:** NONE  
+
+**Purpose:**  
+Generiert Sankey-Diagramm aus Einnahmen, Ausgaben und Sparzielen. Liefert HTML-String, direkt in Templates eingebettet.
+
+**Sample output:**  
+- HTML `<iframe>` mit Sankey-Diagramm
