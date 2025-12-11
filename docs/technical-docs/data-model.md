@@ -17,4 +17,5 @@ nav_order: 2
 {: toc }
 </details>
 
-[Visualize and describe the data model(s) of your application. This description should match the actual implementation.]
+[<img width="1254" height="708" alt="image" src="https://github.com/user-attachments/assets/2085ef80-581d-4c51-af32-fb8140dfe1b5" />
+]
