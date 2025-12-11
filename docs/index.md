@@ -10,7 +10,7 @@ nav_order: 0
 
 # [BudgetBro]
 
-[Project description]
+[BudgetBro ist eine Full-Stack-Webanwendung zur übersichtlichen Darstellung persönlicher Einnahmen, Ausgaben und Sparziele. Im Gegensatz zu Banking-Apps wie „Finanzguru“ konzentriert sich BudgetBro nicht auf Kontointegration oder Automatisierung, sondern auf klare Visualisierung und manuelle Kontrolle über die eigenen Finanzen]
 
 ## Team members
 
