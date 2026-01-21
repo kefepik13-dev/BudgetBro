@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+
+{% block title %}Ziele - BudgetBro{% endblock %}
+
+{% block content %}
+<div class="dashboard-wrapper">
+    <h2 class="welcome-title">🎯 Ziele</h2>
+    <p class="welcome-sub">Lege dein Sparziel fest und verfolge den Fortschritt im Dashboard.</p>
+
+    <div class="card" style="max-width: 520px; margin-top: 1rem;">
+        <form method="POST">
+            {{ form.hidden_tag() }}
+
+            <div class="form-group">
+                {{ form.title.label }}
+                {{ form.title(class="input-field", placeholder="z.B. Neuer Laptop") }}
+            </div>
+
+            <div class="form-group">
+                {{ form.target_amount.label }}
+                {{ form.target_amount(class="input-field", step="0.01", placeholder="1000") }}
+            </div>
+
+            <div class="form-group">
+                {{ form.saved_amount.label }}
+                {{ form.saved_amount(class="input-field", step="0.01", placeholder="550") }}
+                <small style="color: #666; font-size: 0.85rem;">Aktualisiere diesen Wert monatlich, um den Fortschritt
+                    zu sehen.</small>
+            </div>
+
+            <button type="submit" class="btn-link" style="margin-top: 0.5rem;">{{ form.submit.label.text }}</button>
+        </form>
+
+        {% if goal %}
+        <div style="margin-top: 1rem;">
+            <p style="margin: 0 0 0.25rem;">Aktuelles Ziel:</p>
+            <strong>{{ goal.title }}</strong><br>
+            <small>{{ goal.saved_amount|round(2) }}€ / {{ goal.target_amount|round(2) }}€</small>
+        </div>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}

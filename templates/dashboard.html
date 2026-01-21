@@ -13,7 +13,7 @@
         <div class="card sankey-card">
             <h3>💸 Finanzübersicht</h3>
             <div class="sankey-actions">
-                <a class="btn-link" href="{{ url_for('sankey_full') }}" rel="noopener">Fullscreen
+                <a class="btn-link" href="{{ url_for('sankey_full') }}" target="_blank" rel="noopener">Fullscreen
                     öffnen</a>
             </div>
             <div class="sankey-wrapper">
@@ -21,22 +21,32 @@
             </div>
         </div>
 
-        <div class="card tips-card">
-            <h3>Kleine Tipps</h3>
-            <ul>
-                <li>Notiere alle deine Ein- und Ausgaben</li>
-                <li>Setze dir Sparziele</li>
-                <li>Gerate nie in Disposition</li>
-            </ul>
+        <div class="goal-card">
+            <h3>🎯 Sparziel{% if goal and goal.title %}: {{ goal.title }}{% endif %}</h3>
+            {% if goal %}
+            {% set pct = 0 %}
+            {% if goal.target_amount and goal.target_amount > 0 %}
+            {% set pct = (goal.saved_amount / goal.target_amount * 100) %}
+            {% endif %}
+            <p class="goal-amount">{{ goal.saved_amount|round(2) }}€ <span>/ {{ goal.target_amount|round(2) }}€</span>
+            </p>
+            <div class="goal-progressbar">
+                <div class="goal-progress" style="width: {{ [pct, 100]|min }}%;"></div>
+            </div>
+            <p class="goal-percent">{{ [pct, 100]|min|round(0) }}% erreicht</p>
+            {% else %}
+            <p class="goal-amount">Kein Ziel gesetzt</p>
+            <div class="goal-progressbar">
+                <div class="goal-progress" style="width: 0%;"></div>
+            </div>
+            <p class="goal-percent">0% erreicht</p>
+            {% endif %}
         </div>
 
-        <div class="goal-card">
-            <h3>🎯 Sparziel: Neuer Laptop</h3>
-            <p class="goal-amount">550€ <span>/ 1000€</span></p>
-            <div class="goal-progressbar">
-                <div class="goal-progress" style="width: 55%;"></div>
-            </div>
-            <p class="goal-percent">55% erreicht</p>
+        <div class="card">
+            <h3>📊 Budget Gesundheit</h3>
+            <p>Erfahre mehr über deine finanzielle Gesundheit</p>
+            <a class="btn-link" href="{{ url_for('budget_health') }}">Zur Analyse</a>
         </div>
 
     </div>

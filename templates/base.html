@@ -22,14 +22,25 @@
 
         <ul class="nav-links">
             <li><a class="{% if active_page == 'dashboard' %}active{% endif %}" href="/dashboard">Dashboard</a></li>
-            <li><a class="{% if active_page == 'fluss' %}active{% endif %}" href="/fluss">Fluss</a></li>
-            <li><a class="{% if active_page == 'berichte' %}active{% endif %}" href="/berichte">Berichte</a></li>
+            <li><a class="{% if active_page == 'fluss' %}active{% endif %}" href="/fluss">Finanzfluss</a></li>
+            <li><a class="{% if active_page == 'budget_health' %}active{% endif %}" href="/budget-health">Budget
+                    Gesundheit</a></li>
             <li><a class="{% if active_page == 'ziele' %}active{% endif %}" href="/ziele">Ziele</a></li>
         </ul>
     </nav>
 
     <!-- MAIN CONTENT -->
     <main>
+        {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+        <div class="flash-container">
+            {% for category, message in messages %}
+            <div class="flash flash-{{ category }}">{{ message }}</div>
+            {% endfor %}
+        </div>
+        {% endif %}
+        {% endwith %}
+
         {% block content %}{% endblock %}
     </main>
 

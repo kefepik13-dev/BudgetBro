@@ -1,0 +1,100 @@
+{% extends "base.html" %}
+
+{% block title %}Finanzfluss bearbeiten - BudgetBro{% endblock %}
+
+{% block content %}
+<div class="dashboard-wrapper">
+    <h2>Finanzfluss bearbeiten</h2>
+    <p>Aktualisiere deine Basiswerte oder füge eigene Kategorien hinzu. Die Änderungen erscheinen im Sankey.</p>
+
+    <div class="dashboard-grid">
+        <div class="card">
+            <h3>Basiswerte</h3>
+            <form method="POST">
+                {{ onboarding_form.hidden_tag() }}
+                <h4>Einnahmen</h4>
+                <div class="form-grid">
+                    <div class="form-group">{{ onboarding_form.income_salary.label }}{{
+                        onboarding_form.income_salary(class="input-field") }}</div>
+                    <div class="form-group">{{ onboarding_form.income_side.label }}{{
+                        onboarding_form.income_side(class="input-field") }}</div>
+                    <div class="form-group">{{ onboarding_form.income_invest.label }}{{
+                        onboarding_form.income_invest(class="input-field") }}</div>
+                </div>
+
+                <h4>Fixkosten</h4>
+                <div class="form-grid">
+                    <div class="form-group">{{ onboarding_form.fixed_housing.label }}{{
+                        onboarding_form.fixed_housing(class="input-field") }}</div>
+                    <div class="form-group">{{ onboarding_form.fixed_insurance.label }}{{
+                        onboarding_form.fixed_insurance(class="input-field") }}</div>
+                    <div class="form-group">{{ onboarding_form.fixed_mobility.label }}{{
+                        onboarding_form.fixed_mobility(class="input-field") }}</div>
+                </div>
+
+                <h4>Variable Kosten</h4>
+                <div class="form-grid">
+                    <div class="form-group">{{ onboarding_form.var_food.label }}{{
+                        onboarding_form.var_food(class="input-field") }}</div>
+                    <div class="form-group">{{ onboarding_form.var_fun.label }}{{
+                        onboarding_form.var_fun(class="input-field") }}</div>
+                    <div class="form-group">{{ onboarding_form.var_shopping.label }}{{
+                        onboarding_form.var_shopping(class="input-field") }}</div>
+                </div>
+
+                <h4>Sparen & Anlegen</h4>
+                <div class="form-grid">
+                    <div class="form-group">{{ onboarding_form.save_emergency.label }}{{
+                        onboarding_form.save_emergency(class="input-field") }}</div>
+                    <div class="form-group">{{ onboarding_form.save_retirement.label }}{{
+                        onboarding_form.save_retirement(class="input-field") }}</div>
+                    <div class="form-group">{{ onboarding_form.save_goals.label }}{{
+                        onboarding_form.save_goals(class="input-field") }}</div>
+                </div>
+
+                <h4>Schulden</h4>
+                <div class="form-grid">
+                    <div class="form-group">{{ onboarding_form.debt_credit.label }}{{
+                        onboarding_form.debt_credit(class="input-field") }}</div>
+                    <div class="form-group">{{ onboarding_form.debt_student.label }}{{
+                        onboarding_form.debt_student(class="input-field") }}</div>
+                </div>
+
+                <button type="submit" class="login-btn" style="margin-top:1rem;">Basiswerte speichern</button>
+            </form>
+        </div>
+
+        <div class="card">
+            <h3>Eigene Kategorien</h3>
+            <form method="POST">
+                {{ custom_form.hidden_tag() }}
+                <div class="form-group">
+                    {{ custom_form.name.label }}{{ custom_form.name(class="input-field") }}
+                </div>
+                <div class="form-group">
+                    {{ custom_form.amount.label }}{{ custom_form.amount(class="input-field") }}
+                </div>
+                <div class="form-group">
+                    {{ custom_form.kind.label }}{{ custom_form.kind(class="input-field") }}
+                </div>
+                <button type="submit" class="login-btn">{{ custom_form.submit.label.text }}</button>
+            </form>
+
+            <h4 style="margin-top:1rem;">Vorhandene Kategorien</h4>
+            {% if customs %}
+            <ul class="custom-list">
+                {% for c in customs %}
+                <li>
+                    <span class="pill pill-{{ c.kind }}">{{ c.kind }}</span>
+                    <strong>{{ c.name }}</strong> – {{ "%.2f"|format(c.amount) }}€
+                    <a class="link-delete" href="{{ url_for('delete_category', cat_id=c.id) }}">löschen</a>
+                </li>
+                {% endfor %}
+            </ul>
+            {% else %}
+            <p>Keine zusätzlichen Kategorien.</p>
+            {% endif %}
+        </div>
+    </div>
+</div>
+{% endblock %}

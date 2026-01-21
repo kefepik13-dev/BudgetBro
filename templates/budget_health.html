@@ -1,0 +1,80 @@
+{% extends "base.html" %}
+
+{% block title %}Budget Gesundheit - BudgetBro{% endblock %}
+
+{% block content %}
+<div class="dashboard-wrapper">
+    <h2 class="welcome-title">📊 Budget Gesundheit</h2>
+    <p class="welcome-sub">Deine finanzielle Gesundheit auf einen Blick</p>
+
+    <div class="budget-health-container">
+        <!-- Main Score Gauge -->
+        <div class="card budget-score-card">
+            <div class="score-gauge-wrapper">
+                <svg class="score-gauge" viewBox="0 0 200 200">
+                    <circle class="gauge-background" cx="100" cy="100" r="80" />
+                    <circle class="gauge-fill gauge-{{ score_data.score|int // 40 }}" cx="100" cy="100" r="80"
+                        style="stroke-dasharray: {{ (score_data.score / 100) * 502.4 }} 502.4;" />
+                    <text x="100" y="100" text-anchor="middle" class="score-text">{{ score_data.score }}</text>
+                    <text x="100" y="120" text-anchor="middle" class="score-label">von 100</text>
+                </svg>
+            </div>
+            <div class="score-status">
+                <h3 class="status-text status-{{ score_data.score|int // 40 }}">
+                    {% if score_data.score >= 70 %}
+                    Gesund ✅
+                    {% elif score_data.score >= 40 %}
+                    Ausbaufähig ⚠️
+                    {% else %}
+                    Kritisch ⚠️
+                    {% endif %}
+                </h3>
+            </div>
+        </div>
+
+        <!-- Breakdown List -->
+        <div class="card breakdown-card">
+            <h3>Detaillierte Analyse</h3>
+            <div class="breakdown-list">
+                {% for key, component in score_data.subscores.items() %}
+                {% if key != 'goal_realism' and key != 'emergency_fund' %}
+                <div class="breakdown-item">
+                    <div class="breakdown-header">
+                        <span class="breakdown-label">
+                            {% if key == 'savings_rate' %}
+                            Sparquote
+                            {% elif key == 'fixed_cost_ratio' %}
+                            Fixkostenanteil
+                            {% elif key == 'monthly_surplus' %}
+                            Monatlicher Überschuss
+                            {% else %}
+                            {{ key }}
+                            {% endif %}
+                        </span>
+                        <span class="breakdown-score">{{ component.score }}/100</span>
+                    </div>
+                    <div class="breakdown-value">
+                        {% if key == 'savings_rate' %}
+                        <strong>{{ (component.value.savings_rate * 100)|round(1) }}%</strong> deines Einkommens
+                        {% elif key == 'fixed_cost_ratio' %}
+                        <strong>{{ (component.value.fixed_cost_ratio * 100)|round(1) }}%</strong> deines Einkommens
+                        {% elif key == 'monthly_surplus' %}
+                        <strong>{{ component.value.monthly_surplus|round(2) }}€</strong>
+                        {% if component.value.monthly_surplus_ratio %}
+                        ({{ (component.value.monthly_surplus_ratio * 100)|round(1) }}% deines Einkommens)
+                        {% endif %}
+                        {% endif %}
+                    </div>
+                    <div class="progress-bar-wrapper">
+                        <div class="progress-bar progress-{{ component.score|int // 40 }}"
+                            style="width: {{ component.score }}%"></div>
+                    </div>
+                    <p class="breakdown-explanation">{{ component.explanation }}</p>
+                </div>
+                {% endif %}
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
