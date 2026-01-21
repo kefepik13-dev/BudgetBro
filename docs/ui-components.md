@@ -1,64 +1,19 @@
+<img width="1465" height="878" alt="Bildschirmfoto 2025-12-11 um 15 08 31" src="https://github.com/user-attachments/assets/536879bb-b0a7-43e3-831b-5619aae74e71" />
+
 ---
-title: UI Components
-nav_order: 99
+
+<img width="1464" height="876" alt="Bildschirmfoto 2025-12-11 um 15 14 51" src="https://github.com/user-attachments/assets/4b546d29-439c-4779-97a1-f0535cf05192" />
+
 ---
 
-{: .label .label-red }
-[to be deleted]
+<img width="1468" height="880" alt="Bildschirmfoto 2025-12-11 um 15 16 53" src="https://github.com/user-attachments/assets/9ec4cc81-f3a3-4284-ba3d-ad6eadeab309" />
 
-{: .attention}
-> Once you are familiar with the available UI components of this template, exclude this page by changing `nav_order: 99` to `nav_exclude: true` on top of this page (line 3). Its *front matter* will then look like this:
-> ```
-> ---
-> title: UI Components
-> nav_exclude: true
-> ---
-> ```
+---
 
-# UI components
+<img width="1464" height="875" alt="Bildschirmfoto 2025-12-11 um 15 17 18" src="https://github.com/user-attachments/assets/37dd013a-4473-4215-b764-519102efb3de" />
 
-The [Just the Docs documentation](https://just-the-docs.github.io/just-the-docs/docs/ui-components) details more UI components.
 
-For a quick reference of the markdown syntax, visit [this page](https://github.com/just-the-docs/just-the-docs/blob/main/docs/index-test.md?plain=1).
 
-## Images
-
-```markdown
-![get_list_todos_sample](assets/images/fswd-intro_02.png)
-```
-
-![get_list_todos_sample](assets/images/fswd-intro_02.png)
-
-## Callouts
-
-{: .info }
-> This is an info callout.
-
-{: .tip }
-> This is a tip callout.
-
-{: .attention }
-> This is an attention callout.
-
-{: .download }
-> This is a download callout.
-
-## Labels
-
-{: .label }
-[Default label]
-
-{: .label .label-green }
-[Green label]
-
-{: .label .label-red }
-[Red label]
-
-## Mermaid.js
-
-```mermaid
-graph TD;
-    A-->B;
     A-->C;
 ```
 
