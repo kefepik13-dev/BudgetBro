@@ -25,6 +25,17 @@ Contributions
 Für die Finanzmanagement-Applikation übernahm ich die vollständige Konzeption und Implementierung des Backends auf Basis des Python-Microframeworks Flask. Meine Verantwortung umfasste den Entwurf einer skalierbaren Anwendungsarchitektur sowie die Datenmodellierung mittels SQLAlchemy. Dabei designte ich ein relationales Datenbankschema, das Nutzerdaten, Onboarding-Prozesse, variable Finanzkategorien und Sparziele effizient abbildet und konsistent in einer SQLite-Datenbank persistiert.
 
 Ein Schwerpunkt lag auf der Implementierung sicherer Authentifizierungsmechanismen. Hierfür entwickelte ich ein Session-Management-System inklusive Passwort-Hashing (via Werkzeug Security) und Zugriffskontrollen für geschützte Routen. Für die Gewährleistung der Datenintegrität setzte ich auf Flask-WTF, um Nutzereingaben serverseitig streng zu validieren und Fehleingaben abzufangen.
+### Konzeption und Entwicklung des Financial-Analysis-Algorithmus
+
+Zusätzlich zu den Kernfunktionen entwickelte und implementierte ich ein proprietäres Analyse-Modul zur Bewertung der finanziellen Stabilität der Nutzer. Das Herzstück bildet der „Budget Health Score“, ein gewichteter Algorithmus, der eine quantitative Bewertung der finanziellen Gesundheit auf einer Skala von 0 bis 100 liefert.
+
+Die wichtigsten Aspekte dieser Implementierung umfassen:
+
+* **Multifaktorielle Bewertungslogik:** Entwicklung eines mathematischen Modells, das drei kritische Finanzkennzahlen isoliert betrachtet und bewertet:
+    1.  Savings Rate Score: Analyse der Sparquote.
+    2.  Fixed Cost Ratio Score: Bewertung des Fixkostenanteils.
+    3.  Monthly Surplus Score: Berechnung des frei verfügbaren Cashflows (Puffer) nach Abzug aller Fixkosten und Sparraten zur Messung der finanziellen Resilienz.
+
 
 ## [Efe Kürsat Epik]
 
