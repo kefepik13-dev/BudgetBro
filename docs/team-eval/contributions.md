@@ -20,7 +20,7 @@ nav_order: 4
 ## [Batuhan Selvi]
 
 Contributions
-:### Backend-Entwicklung und Systemarchitektur
+### Backend-Entwicklung und Systemarchitektur
 
 Für die Finanzmanagement-Applikation übernahm ich die vollständige Konzeption und Implementierung des Backends auf Basis des Python-Microframeworks Flask. Meine Verantwortung umfasste den Entwurf einer skalierbaren Anwendungsarchitektur sowie die Datenmodellierung mittels SQLAlchemy. Dabei designte ich ein relationales Datenbankschema, das Nutzerdaten, Onboarding-Prozesse, variable Finanzkategorien und Sparziele effizient abbildet und konsistent in einer SQLite-Datenbank persistiert.
 
