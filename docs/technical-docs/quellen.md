@@ -63,6 +63,49 @@ Die Plotly-Dokumentation stellte die Grundlage für die Implementierung des Sank
 
 ---
 ### Python Flask Authentication Tutorial - Learn Flask Login
+https://www.youtube.com/watch?v=71EU8gnZqZQ
+
+**Beitrag zum Projekt**
+Das folgende Video erklärte die grundlegende Projektstruktur einer Flask-Applikation, es ermöglichste uns ein Verständnis für Routing, Request-Handling und Backend-Logik. Ebenfalls zeigte das Video Praktische Beispiele was uns geholfen hat unseren Login zu fertigen.  
+
+### HWR Berlin – Full-Stack Web Development Kursmaterial
+
+**Quelle:**  
+HWR Berlin (2024). *Full-Stack Web Development Kursmaterial*.  
+https://hwrberlin.github.io/fswd/
+
+**Beitrag zum Projekt:**  
+Das Kursmaterial der HWR Berlin lieferte eine methodische Grundlage für den gesamten Entwicklungsprozess. Besonders hilfreich waren die Tutorials zu Git und GitHub für Versionsverwaltung, die Einführung in Flask Routing und HTTP Requests sowie die Vermittlung von HTML, CSS und User-Interface-Design Prinzipien. Außerdem wurden Dokumentationen zu SQLAlchemy und Datenbankmodellierung sowie Hinweise zu Software-Designentscheidungen genutzt. Dieses Material unterstützte das Projekt insbesondere bei Architekturentscheidungen, der Datenmodellierung und der Strukturierung des Team-Workflows.
+
+---
+
+### MDN Web Docs – SVG (Scalable Vector Graphics)
+
+**Quelle:**  
+MDN Web Docs (2024). *SVG (Scalable Vector Graphics)*.  
+https://developer.mozilla.org/en-US/docs/Web/SVG
+
+**Beitrag zum Projekt:**  
+Die MDN-Dokumentation zu SVG vermittelte grundlegendes Wissen über textbasierte Vektorgrafiken, die verlustfrei skalierbar sind. Sie erläuterte die Nutzung von SVG-Elementen zur Darstellung dynamischer Visualisierungen, die Einbindung von SVG in HTML sowie die Interaktion mit CSS und JavaScript. Zudem wurden Formen, Pfade und Animationen behandelt, die für die Umsetzung des Budget-Health-Kreisdiagramms und weiterer Visualisierungskomponenten im Projekt verwendet wurden.
+### HWR Berlin – Full-Stack Web Development Kursmaterial
+
+**Quelle:**  
+HWR Berlin (2024). *Full-Stack Web Development Kursmaterial*.  
+https://hwrberlin.github.io/fswd/
+
+**Beitrag zum Projekt:**  
+Das Kursmaterial der HWR Berlin von Ihnen lieferte eine methodische Grundlage für den gesamten Entwicklungsprozess. Besonders hilfreich waren die Tutorials zu Git und GitHub für Versionsverwaltung, die Einführung in Flask Routing und HTTP Requests sowie die Vermittlung von HTML, CSS und User-Interface-Design Prinzipien. Außerdem wurden Dokumentationen zu SQLAlchemy und Datenbankmodellierung sowie Hinweise zu Software-Designentscheidungen genutzt. Dieses Material unterstützte das Projekt insbesondere bei Architekturentscheidungen, der Datenmodellierung und der Strukturierung des Team-Workflows.
+
+---
+
+### MDN Web Docs – SVG (Scalable Vector Graphics)
+
+**Quelle:**  
+MDN Web Docs (2024). *SVG (Scalable Vector Graphics)*.  
+https://developer.mozilla.org/en-US/docs/Web/SVG
+
+**Beitrag zum Projekt:**  
+Die MDN-Dokumentation zu SVG vermittelte grundlegendes Wissen über textbasierte Vektorgrafiken, die verlustfrei skalierbar sind. Sie erläuterte die Nutzung von SVG-Elementen zur Darstellung dynamischer Visualisierungen, die Einbindung von SVG in HTML sowie die Interaktion mit CSS. Zudem wurden Formen, Pfade und Animationen behandelt, die für die Umsetzung des Budget-Health-Kreisdiagramms und weiterer Visualisierungskomponenten im Projekt verwendet wurden.
 
 
 
