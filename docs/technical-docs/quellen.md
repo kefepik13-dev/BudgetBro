@@ -8,7 +8,7 @@ nav_order: 1
 [Jane Dane]
 
 {: .no_toc }
-# Architecture
+# Quellenverzeichnis
 
 <details open markdown="block">
 {: .text-delta }
