@@ -28,18 +28,18 @@ Updated
 
 ### Goal
 
-[Describe the goal of this evaluation, for example as a research question like: "How long does it take to register a new account and what is the drop-out rate?"]
+Ziel dieser Evaluation war es zu untersuchen, ob Nutzer nach dem Onboarding ihre finanzielle Situation verstehen und interpretieren können. Im Fokus stand dabei die Frage, ob der berechnete Budget Health Score in Kombination mit der Sankey-Visualisierung als verständliche Entscheidungsunterstützung wahrgenommen wird und ob Nutzer in der Lage sind, ihre Einnahmen-, Ausgaben- und Sparstruktur korrekt einzuordnen.
 
 ### Method
 
-[Describe how you proceed to achieve your evaluation goal. Be as specific as possible: others should be able to replicate your evaluation by following the description on this section.]
+Die Evaluation wurde anhand einer testweisen Nutzung der Anwendung durchgeführt. Testnutzer durchliefen den vollständigen Onboarding-Prozess, gaben ihre monatlichen Einnahmen, Fixkosten und Sparbeträge ein und erhielten anschließend den berechneten Budget Health Score sowie die zugehörige Sankey-Visualisierung. Im Anschluss wurden die Nutzer gebeten, ihre finanzielle Situation verbal zu erklären und anzugeben, welche Aspekte ihrer Budgetstruktur sie als kritisch oder stabil einschätzen. Zusätzlich wurde erfasst, ob Nutzer Rückfragen zur Bedeutung des Scores oder der Visualisierung hatten. Die Evaluation kann repliziert werden, indem identische Eingabedaten verwendet und die Nutzer nach der Interpretation der dargestellten Ergebnisse befragt werden.
 
 ### Results
 
-[Present the main results of your evaluation, for example: "On average, users need 3 min to register. The drop-out rate was 70%. Users that didn't complete provided the following reasons: ..."]
+Die Ergebnisse zeigten, dass die Mehrheit der Nutzer den Budget Health Score als verständliche Zusammenfassung ihrer finanziellen Situation wahrnahm. Insbesondere die visuelle Darstellung der Finanzflüsse im Sankey-Diagramm erleichterte das Verständnis der Verteilung zwischen Einnahmen, Fixkosten, Sparbeträgen und verbleibendem Überschuss. Einzelne Nutzer hatten jedoch Schwierigkeiten, die Gewichtung der einzelnen Faktoren innerhalb des Scores nachzuvollziehen und äußerten Unsicherheiten hinsichtlich der Interpretation von Grenzwerten, insbesondere bei mittleren Score-Bereichen.
 
 ### Implications
 
-[What did you learn from this evaluation and what will you change to improve? Example: "We aim to decrease the drop-out rate by not asking for a birth date. We will re-run this evaluation to measure the impact."]
+Aus der Evaluation lässt sich ableiten, dass die Kombination aus numerischem Score und visueller Darstellung grundsätzlich geeignet ist, finanzielle Zusammenhänge verständlich zu vermitteln. Zur Verbesserung der Nutzererfahrung sollen künftig erklärende Hinweise zur Berechnung und Gewichtung des Budget Health Scores ergänzt werden. Darüber hinaus ist geplant, die Sankey-Visualisierung um zusätzliche Beschriftungen oder Tooltips zu erweitern. Nach Umsetzung dieser Anpassungen soll die Evaluation erneut durchgeführt werden, um den Einfluss der Verbesserungen auf das Verständnis der Nutzer zu messen.
 
 ---
