@@ -1,3 +1,23 @@
+---
+title: Architecture
+parent: Technical Docs
+nav_order: 1
+---
+
+{: .label }
+[Jane Dane]
+
+{: .no_toc }
+# Architecture
+
+<details open markdown="block">
+{: .text-delta }
+<summary>Table of contents</summary>
++ ToC
+{: toc }
+</details>
+
+
 ### Flask Documentation – Pallets Projects
 
 **Quelle:**  
