@@ -1,5 +1,5 @@
 ---
-title: Architecture
+title: Quellenverzeichnis
 parent: Technical Docs
 nav_order: 1
 ---
