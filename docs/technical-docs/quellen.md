@@ -107,5 +107,16 @@ https://developer.mozilla.org/en-US/docs/Web/SVG
 **Beitrag zum Projekt:**  
 Die MDN-Dokumentation zu SVG vermittelte grundlegendes Wissen über textbasierte Vektorgrafiken, die verlustfrei skalierbar sind. Sie erläuterte die Nutzung von SVG-Elementen zur Darstellung dynamischer Visualisierungen, die Einbindung von SVG in HTML sowie die Interaktion mit CSS. Zudem wurden Formen, Pfade und Animationen behandelt, die für die Umsetzung des Budget-Health-Kreisdiagramms und weiterer Visualisierungskomponenten im Projekt verwendet wurden.
 
+---
+
+### ChatGPT
+
+**Quelle:**
+ChatGPT (2026)
+https://chatgpt.com/share/69887218-3cf8-8002-92d8-6a28436cbca9
+
+**Beitrag zum Projekt:**
+ChatGPT wurde zur Klärung allgemeiner fachlicher und technischer Fragestellungen eingesetzt. Dabei diente es insbesondere zur Unterstützung beim Verständnis von Konzepten, zur Strukturierung von Inhalten sowie zur Anregung möglicher Lösungsansätze. Die gewonnenen Informationen wurden kritisch geprüft und eigenständig weiterverarbeitet.
+
 
 
