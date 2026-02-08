@@ -4,7 +4,7 @@ nav_order: 3
 ---
 
 {: .label }
-[Jane Dane]
+[Batuhan Selvi & Efe Kürsat Epik]
 
 {: .no_toc }
 # Design decisions
