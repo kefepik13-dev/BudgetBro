@@ -5,7 +5,7 @@ nav_order: 1
 ---
 
 {: .label }
-[Jane Dane]
+[Batuhan Selvi & Efe Kürsat Epik]
 
 {: .no_toc }
 # Goals achieved and missed
