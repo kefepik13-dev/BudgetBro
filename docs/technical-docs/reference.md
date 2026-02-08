@@ -5,7 +5,7 @@ nav_order: 3
 ---
 
 {: .label }
-[Jane Dane]
+[Batuhan Selvi]
 
 {: .no_toc }
 # Reference documentation
@@ -20,129 +20,194 @@ nav_order: 3
 
 # Reference Documentation
 
-Diese Seite sammelt interne Funktionen, Routen und APIs der BudgetBro-App.
+Diese Seite dokumentiert interne Routen, Funktionen und Logik der BudgetBro-WebApp.
+BudgetBro unterstützt Nutzer:innen beim Verständnis ihrer monatlichen Finanzflüsse mithilfe von Sankey-Diagrammen, Sparzielen und einem Budget-Health-Score.
 
 ---
 
 ## User Management
 
 ### `register()`
-
-**Route:** `/register/`  
-**Methods:** `GET`, `POST`  
+**Route:** `/register`  
+**Methods:** `GET`, `POST`
 
 **Purpose:**  
-Zeigt das Registrierungsformular. Erstellt einen neuen Benutzer, hasht das Passwort und startet eine Session.
+Zeigt das Registrierungsformular. Erstellt einen neuen Benutzer, hasht das Passwort und loggt den Nutzer automatisch ein. Nach erfolgreicher Registrierung wird direkt das Onboarding gestartet.
 
 **Sample output:**  
-- Bei Erfolg: Weiterleitung zum Dashboard, Flash „Login erfolgreich“  
-- Bei Fehler: Flash „Benutzername ist bereits vergeben“
+- Erfolg: Weiterleitung zu `/onboarding`, Flash: *„Registrierung erfolgreich! Lass uns mit dem Onboarding starten.“*  
+- Fehler: Flash: *„Benutzername ist bereits vergeben.“*
 
 ---
 
 ### `login()`
-
-**Route:** `/login/`  
-**Methods:** `GET`, `POST`  
+**Route:** `/login`  
+**Methods:** `GET`, `POST`
 
 **Purpose:**  
-Zeigt Login-Formular, prüft Benutzername + Passwort. Startet Session bei Erfolg.
+Authentifiziert bestehende Benutzer anhand von Benutzername und Passwort. Startet eine Session bei Erfolg.
 
 **Sample output:**  
-- Erfolg: Weiterleitung zum Dashboard, Flash „Login erfolgreich“  
-- Fehler: Flash „Benutzername oder Passwort falsch!“
+- Erfolg:  
+  - Onboarding nicht abgeschlossen → Weiterleitung zu `/onboarding`  
+  - Onboarding abgeschlossen → Weiterleitung zu `/dashboard`  
+  - Flash: *„Login erfolgreich!“*  
+- Fehler: Flash: *„Benutzername oder Passwort falsch!“*
 
 ---
 
 ### `logout()`
-
-**Route:** `/logout/`  
-**Methods:** `GET`  
+**Route:** `/logout`  
+**Methods:** `GET`
 
 **Purpose:**  
-Löscht die Session und loggt den Benutzer aus. Leitet zurück zum Login.
+Beendet die Session und loggt den Benutzer aus.
 
 **Sample output:**  
-- Flash: „Du wurdest ausgeloggt.“
+- Weiterleitung zu `/login`  
+- Flash: *„Du wurdest ausgeloggt.“*
+
+---
+
+## Onboarding
+
+### `onboarding()`
+**Route:** `/onboarding`  
+**Methods:** `GET`, `POST`
+
+**Purpose:**  
+Erfasst die grundlegenden finanziellen Daten des Nutzers (Einnahmen, Fixkosten, variable Kosten, Sparen, Schulden).  
+Das Onboarding ist verpflichtend und Voraussetzung für die Nutzung aller weiteren App-Funktionen.
+
+**Sample output:**  
+- Erfolg: Weiterleitung zu `/dashboard`, Flash: *„Onboarding gespeichert. Willkommen!“*  
+- Bereits abgeschlossen: Weiterleitung zum Dashboard
 
 ---
 
 ## Dashboard & Visualisierung
 
 ### `dashboard()`
-
-**Route:** `/dashboard/`  
-**Methods:** `GET`  
+**Route:** `/dashboard`  
+**Methods:** `GET`
 
 **Purpose:**  
-Zeigt das Dashboard für eingeloggte Benutzer. Beinhaltet Sankey-Diagramm, Tipps und Sparziele.
+Zentrale Übersichtsseite für eingeloggte Benutzer. Zeigt das Sankey-Diagramm, das aktuelle Sparziel sowie eine Zusammenfassung der Finanzdaten.
 
 **Sample output:**  
-- HTML-Seite mit Sankey-Diagramm, Sparziel-Karte und Tipps-Karte
+- HTML-Seite mit eingebettetem Sankey-Diagramm  
+- Sparziel-Karte (falls vorhanden)
 
 ---
 
 ### `sankey_full()`
-
-**Route:** `/sankey/full/`  
-**Methods:** `GET`  
+**Route:** `/sankey/full`  
+**Methods:** `GET`
 
 **Purpose:**  
-Zeigt Sankey-Diagramm im Vollbild. Nur für eingeloggte Benutzer.
+Zeigt das Sankey-Diagramm im Vollbildmodus für eine detailliertere Betrachtung der Finanzströme.
 
 **Sample output:**  
-- Vollbild-Sankey-Diagramm mit Zurück-Link zum Dashboard
+- Vollbild-Sankey-Diagramm mit Navigationsmöglichkeit zurück zum Dashboard
 
 ---
+
+## Finanzflüsse & Kategorien
 
 ### `fluss()`
-
-**Route:** `/fluss/`  
-**Methods:** `GET`  
+**Route:** `/fluss`  
+**Methods:** `GET`, `POST`
 
 **Purpose:**  
-Zeigt Detailansicht der Finanzströme (aktuell Platzhalter, noch in Bearbeitung)
+Ermöglicht das Bearbeiten der Basis-Finanzdaten sowie das Hinzufügen benutzerdefinierter Kategorien für Einnahmen, Kosten, Sparen und Schulden.
+
+**Funktionen:**  
+- Aktualisieren der Onboarding-Werte  
+- Hinzufügen eigener Kategorien  
+- Anzeigen bestehender Kategorien
 
 **Sample output:**  
-- HTML-Seite „Fluss“
+- HTML-Seite mit Formularen für Basiswerte und Custom-Kategorien  
+- Flash-Meldungen bei Änderungen
 
 ---
 
-### `berichte()`
-
-**Route:** `/berichte/`  
-**Methods:** `GET`  
+### `delete_category()`
+**Route:** `/fluss/delete/<cat_id>`  
+**Methods:** `GET`
 
 **Purpose:**  
-Zeigt Finanzberichte/Analysen (aktuell Platzhalter, noch in Bearbeitung)
+Löscht eine benutzerdefinierte Kategorie des eingeloggten Benutzers.
 
 **Sample output:**  
-- HTML-Seite „Berichte“
+- Erfolg: Flash *„Kategorie gelöscht.“*  
+- Fehler: Flash *„Kategorie nicht gefunden.“*
 
 ---
+
+## Sparziele
 
 ### `ziele()`
-
-**Route:** `/ziele/`  
-**Methods:** `GET`  
+**Route:** `/ziele`  
+**Methods:** `GET`, `POST`
 
 **Purpose:**  
-Zeigt Sparziele des Benutzers, Fortschrittsanzeige in Prozent.
+Erstellt oder aktualisiert ein Sparziel des Nutzers inklusive Zielbetrag und bereits gespartem Betrag.
 
 **Sample output:**  
-- HTML-Seite mit Zielkarten
+- HTML-Seite mit Zielkarte  
+- Flash: *„Ziel gespeichert.“*
+
+---
+
+## Budget Health
+
+### `budget_health()`
+**Route:** `/budget-health`  
+**Methods:** `GET`
+
+**Purpose:**  
+Berechnet und visualisiert den Budget-Health-Score (0–100) des Nutzers auf Basis von Einnahmen, Fixkosten und Sparquote.  
+Benutzerdefinierte Kategorien werden in die Berechnung einbezogen.
+
+**Sample output:**  
+- HTML-Seite mit Gesamt-Score, Subscores und erklärenden Texten  
+- Weiterleitung zum Onboarding, falls keine Finanzdaten vorhanden sind
 
 ---
 
 ## Sankey-Diagramm
 
 ### `build_financial_sankey()`
-
-**Route:** NONE (Funktion, kein Endpoint)  
-**Methods:** NONE  
+**Route:** *keine (interne Funktion)*  
+**Methods:** *keine*
 
 **Purpose:**  
-Generiert Sankey-Diagramm aus Einnahmen, Ausgaben und Sparzielen. Liefert HTML-String, direkt in Templates eingebettet.
+Erstellt ein personalisiertes Sankey-Diagramm aus Onboarding-Daten und Custom-Kategorien.  
+Visualisiert monatliche Einnahmen, Ausgaben, Sparen und Schulden.
 
-**Sample output:**  
-- HTML `<iframe>` mit Sankey-Diagramm
+**Return:**  
+- HTML-String mit eingebettetem Plotly-Diagramm  
+- Dictionary mit aggregierten Summen:
+  - `income_total`
+  - `fix_total`
+  - `var_total`
+  - `save_total`
+  - `debt_total`
+
+---
+
+## Budget-Health-Berechnung
+
+### `calculate_budget_health_score()`
+**Route:** *keine (Utility-Funktion)*  
+**Methods:** *keine*
+
+**Purpose:**  
+Berechnet einen Budget-Health-Score (0–100) anhand von drei gewichteten Faktoren:
+
+- **Sparquote** (40 %)  
+- **Fixkosten-Anteil** (33 %)  
+- **Monatlicher Überschuss** (27 %)
+
+---
