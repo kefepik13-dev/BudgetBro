@@ -5,7 +5,7 @@ nav_order: 2
 ---
 
 {: .label }
-[Jane Dane]
+[Batuhan Selvi & Efe Kürsat Epik]
 
 {: .no_toc }
 # How we would improve next time
